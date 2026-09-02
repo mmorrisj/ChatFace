@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+<title>ChatFace</title>
+<link rel="stylesheet" href="/static/face.css">
+</head>
+<body data-state="idle">
+
+  <main id="stage" aria-label="Tap to talk">
+    <svg id="eyes" viewBox="0 0 400 200" aria-hidden="true">
+      <g class="eye eye--left"><ellipse cx="128" cy="100" rx="34" ry="46"/></g>
+      <g class="eye eye--right"><ellipse cx="272" cy="100" rx="34" ry="46"/></g>
+    </svg>
+    <canvas id="mouth" aria-hidden="true"></canvas>
+    <p id="caption" aria-live="polite"></p>
+  </main>
+
+  <button id="stop" type="button" hidden>Stop</button>
+
+  <div id="sensors" aria-hidden="true">
+    <span class="pip" data-pip="mic">mic</span>
+    <span class="pip" data-pip="camera">cam</span>
+  </div>
+
+  <div id="dev">
+    <button type="button" data-event="tap">tap</button>
+    <button type="button" data-event="speech_start">speech start</button>
+    <button type="button" data-event="speech_end">speech end</button>
+    <button type="button" data-event="response_ready">respond</button>
+    <button type="button" data-event="playback_done">done</button>
+    <button type="button" data-event="stop">stop</button>
+    <label><input type="checkbox" id="toggle-mouth" checked> mouth</label>
+    <span id="state-label">idle</span>
+  </div>
+
+  <script type="module" src="/static/face.js"></script>
+</body>
+</html>
